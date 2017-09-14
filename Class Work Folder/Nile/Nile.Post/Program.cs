@@ -22,11 +22,8 @@ namespace Nile.Post
 
                 switch (choice)
                 {
-                    case 'a':
                     case 'A': AddProduct(); break;
-                    case 'l':
                     case 'L': ListProducts(); break;
-                    case 'q':
                     case 'Q': quit = true; break;
                 }
             } while (!quit);
@@ -40,18 +37,26 @@ namespace Nile.Post
             //Ensure not empty
 
             Console.Write("Enter product price (> 0): ");
-            string price = Console.ReadLine().Trim();
+            productPrice = ReadDecimal();
 
             Console.Write("Enter product description: ");
             productDescription = Console.ReadLine().Trim();
 
-            Console.Write("Enter if product is discontinued: ");
-            string discontinued = Console.ReadLine().Trim();
+            Console.Write("Enter Y/N if product is discontinued: ");
+            productDiscontinued = ReadYesNo();
         }
 
         private static void ListProducts()
         {
-            throw new NotImplementedException();
+            //Name Price [Discontinued]
+            //Description
+            //string msg = String.Format("{0}\t\t\t${1}\t\t{2}", productName, productPrice, productDiscontinued ? "[Discontinued]" : "");
+            //Console.WriteLine("{0}\t\t\t${1}\t\t{2}", productName, productPrice, productDiscontinued ? "[Discontinued]" : "")
+            string msg = $"{productName}\t\t\t${productPrice}\t\t{(productDiscontinued ? "[Discontinued] " : "")}";
+
+            Console.WriteLine(msg);
+
+            Console.WriteLine(productDescription);
         }
 
         static char GetInput ()
@@ -91,11 +96,11 @@ namespace Nile.Post
                 //}
 
                 //Option 3 length
-                if (input != null && input.Length == 0)
+                if (input != null && input.Length != 0)
                 {
-                    //String comparrision
-                    if (String.Compare(input, "A", true) == 0)
-                        return 'A';
+                    //String comparison
+                    //if (String.Compare(input, "A", true) == 0)
+                    //    return 'A';
 
                     char letter = Char.ToUpper(input[0]);
                     if (letter == 'A' /*|| input == "a"*/)
@@ -125,6 +130,41 @@ namespace Nile.Post
             //Format 3
             string format3 = $" {name} worked for {hours} hours";
             // $ will basically do format 2 automatically also its complier safe 
+        }
+
+        /// <summary>Reads a decimal from Console/// </summary>
+        /// <returns>The decimal value</returns>
+        static decimal ReadDecimal()
+        {
+            do
+            { 
+            string input = Console.ReadLine();
+
+            decimal result;
+            if (Decimal.TryParse(input, out result))
+                return result;
+
+                Console.WriteLine("Enter a valid decimal");
+            } while (true) ;
+        }
+
+        static bool ReadYesNo()
+        {
+            do
+            {
+                string input = Console.ReadLine();
+
+                if (!String.IsNullOrEmpty(input))
+                {
+                    switch (Char.ToUpper(input[0]))
+                    {
+                        case 'Y': return true;
+                        case 'N': return false;
+                    }
+                }
+
+                Console.WriteLine("Enter either Y or N");
+            } while (true);
         }
 
         //PRODUCT
