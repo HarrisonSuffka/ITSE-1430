@@ -2,7 +2,7 @@
  * Harrison Suffka
  * ITSE 1430
  * Lab 1
- */ 
+ */
 
 using System;
 using System.Collections.Generic;
@@ -10,8 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab1 {
-    class Program {
+namespace Lab1
+{
+    class Program
+    {
         static void Main( string[] args )
         {
             bool quit = false;
@@ -22,13 +24,17 @@ namespace Lab1 {
                 switch (choice)
                 {
                     case 'L':
-                        ListMovies(); break;
+                        ListMovies();
+                        break;
                     case 'A':
-                        AddMovie(); break;
+                        AddMovie();
+                        break;
                     case 'R':
-                        RemoveMovie(); break;
+                        RemoveMovie();
+                        break;
                     case 'Q':
-                        quit = true; break;
+                        quit = true;
+                        break;
                 }
             } while (!quit);
         }
@@ -47,11 +53,11 @@ namespace Lab1 {
             movieLength = ReadDecimal();
 
             Console.Write("Enter Y/N if movie is owned: ");
-            if ( ReadYesNo() == true) 
+            if (ReadYesNo() == true)
             {
                 movieOwned = "Owned";
-            }
-            else movieOwned = "On WhishList";
+            } else
+                movieOwned = "On WhishList";
         }
 
         private static void ListMovies()
@@ -137,12 +143,15 @@ namespace Lab1 {
         {
             Console.WriteLine("Are you sure you want to delete the movie (Y/N)?");
 
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
 
             var letter = Char.ToUpper(input[0]);
             if (letter == 'Y')
             {
-
+                movieName = null;
+                movieLength = 0;
+                movieDescription = null;
+                movieOwned = null;
             }
         }
 
