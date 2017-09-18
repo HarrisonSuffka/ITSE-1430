@@ -1,7 +1,0 @@
-C:\Users\harrison.suffka\Documents\ITSE-1430\Class Work Folder\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe.config
-C:\Users\harrison.suffka\Documents\ITSE-1430\Class Work Folder\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe
-C:\Users\harrison.suffka\Documents\ITSE-1430\Class Work Folder\HelloWorld\HelloWorld\bin\Debug\HelloWorld.pdb
-C:\Users\harrison.suffka\Documents\ITSE-1430\Class Work Folder\HelloWorld\HelloWorld\obj\Debug\HelloWorld.exe
-C:\Users\harrison.suffka\Documents\ITSE-1430\Class Work Folder\HelloWorld\HelloWorld\obj\Debug\HelloWorld.pdb
-C:\Users\harrison.suffka\Documents\ITSE-1430\Class Work Folder\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe.CodeAnalysisLog.xml
-C:\Users\harrison.suffka\Documents\ITSE-1430\Class Work Folder\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe.lastcodeanalysissucceeded
