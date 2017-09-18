@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Lab_2.Properties
+namespace MovieLib.Windows.Properties
 {
 
 

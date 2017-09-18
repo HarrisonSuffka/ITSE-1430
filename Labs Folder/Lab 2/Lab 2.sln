@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab 2", "Lab 2\Lab 2.csproj", "{5EE9C7C3-D2B1-40AF-B55C-8261A93DE232}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieLib.Windows", "MovieLib.Windows\MovieLib.Windows.csproj", "{A8BEA923-B47B-46BF-8C4F-157CA668BBD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieLib", "MovieLib\MovieLib.csproj", "{2C6D0418-060B-4258-848A-2932FEED448D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5EE9C7C3-D2B1-40AF-B55C-8261A93DE232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5EE9C7C3-D2B1-40AF-B55C-8261A93DE232}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5EE9C7C3-D2B1-40AF-B55C-8261A93DE232}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5EE9C7C3-D2B1-40AF-B55C-8261A93DE232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8BEA923-B47B-46BF-8C4F-157CA668BBD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8BEA923-B47B-46BF-8C4F-157CA668BBD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8BEA923-B47B-46BF-8C4F-157CA668BBD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8BEA923-B47B-46BF-8C4F-157CA668BBD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C6D0418-060B-4258-848A-2932FEED448D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C6D0418-060B-4258-848A-2932FEED448D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C6D0418-060B-4258-848A-2932FEED448D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C6D0418-060B-4258-848A-2932FEED448D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

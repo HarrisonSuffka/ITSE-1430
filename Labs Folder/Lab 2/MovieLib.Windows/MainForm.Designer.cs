@@ -1,6 +1,6 @@
-﻿namespace Lab_2
+﻿namespace MovieLib.Windows
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
