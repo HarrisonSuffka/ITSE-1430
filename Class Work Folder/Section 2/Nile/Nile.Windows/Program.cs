@@ -14,9 +14,6 @@ namespace Nile.Windows
         [STAThread]                                                                            
         static void Main()                                                                     
         {                                                                                      
-            var product = new Product();
-            product.Name = "Product A";
-            var price = product.GetDiscountedPrice();
                 
             Application.EnableVisualStyles();                                                  
             Application.SetCompatibleTextRenderingDefault(false);

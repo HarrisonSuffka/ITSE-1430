@@ -10,7 +10,7 @@ namespace Nile
     /// <remarks>This will represent a product with other stuff.</remarks>
     public class Product
     {
-        public readonly Product None = new Product();
+       // public readonly Product None = new Product();
 
         /// <summary>Gets or sets the name</summary>
         /// <value> Never return null.</value>
@@ -67,7 +67,7 @@ namespace Nile
         public int ICanOnlySetIt { get; private set; }
         public int ICanOnlySetIt2 { get; }
 
-        private readonly double _someValueICanNotChange = 10;
+        //private readonly double _someValueICanNotChange = 10;
 
     }
 }

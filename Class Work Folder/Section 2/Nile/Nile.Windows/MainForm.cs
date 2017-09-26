@@ -15,6 +15,22 @@ namespace Nile.Windows
         public MainForm()
         {
             InitializeComponent();
+        
         }
+
+        private void MainForm_Load( object sender, EventArgs e)
+        { 
+
+        }
+
+        private void button1_Click( object sender, EventArgs e )
+        {
+            var child = new ProductDetailForm();
+            if (child.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            var product = child.Product;
+        }
+
     }
 }
