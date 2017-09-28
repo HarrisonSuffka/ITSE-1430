@@ -51,7 +51,6 @@
             this.Controls.Add(this.button1);
             this.Name = "MainForm";
             this.Text = "Nile";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }

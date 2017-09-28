@@ -51,7 +51,7 @@
             // _lbDescription
             // 
             this._lbDescription.AutoSize = true;
-            this._lbDescription.Location = new System.Drawing.Point(0, 111);
+            this._lbDescription.Location = new System.Drawing.Point(0, 74);
             this._lbDescription.Name = "_lbDescription";
             this._lbDescription.Size = new System.Drawing.Size(63, 13);
             this._lbDescription.TabIndex = 2;
@@ -60,7 +60,7 @@
             // _LbPrice
             // 
             this._LbPrice.AutoSize = true;
-            this._LbPrice.Location = new System.Drawing.Point(0, 221);
+            this._LbPrice.Location = new System.Drawing.Point(4, 118);
             this._LbPrice.Name = "_LbPrice";
             this._LbPrice.Size = new System.Drawing.Size(34, 13);
             this._LbPrice.TabIndex = 3;
@@ -70,27 +70,27 @@
             // 
             this._txtName.Location = new System.Drawing.Point(94, 12);
             this._txtName.Name = "_txtName";
-            this._txtName.Size = new System.Drawing.Size(100, 20);
+            this._txtName.Size = new System.Drawing.Size(217, 20);
             this._txtName.TabIndex = 4;
             // 
             // _txtDescription
             // 
-            this._txtDescription.Location = new System.Drawing.Point(94, 108);
+            this._txtDescription.Location = new System.Drawing.Point(94, 67);
             this._txtDescription.Name = "_txtDescription";
-            this._txtDescription.Size = new System.Drawing.Size(100, 20);
+            this._txtDescription.Size = new System.Drawing.Size(217, 20);
             this._txtDescription.TabIndex = 5;
             // 
             // _txtPrice
             // 
-            this._txtPrice.Location = new System.Drawing.Point(94, 217);
+            this._txtPrice.Location = new System.Drawing.Point(94, 111);
             this._txtPrice.Name = "_txtPrice";
-            this._txtPrice.Size = new System.Drawing.Size(100, 20);
+            this._txtPrice.Size = new System.Drawing.Size(217, 20);
             this._txtPrice.TabIndex = 6;
             // 
             // _chkDiscontinued
             // 
             this._chkDiscontinued.AutoSize = true;
-            this._chkDiscontinued.Location = new System.Drawing.Point(344, 220);
+            this._chkDiscontinued.Location = new System.Drawing.Point(3, 155);
             this._chkDiscontinued.Name = "_chkDiscontinued";
             this._chkDiscontinued.Size = new System.Drawing.Size(105, 17);
             this._chkDiscontinued.TabIndex = 11;
@@ -99,7 +99,7 @@
             // 
             // _bntCancel
             // 
-            this._bntCancel.Location = new System.Drawing.Point(371, 293);
+            this._bntCancel.Location = new System.Drawing.Point(202, 192);
             this._bntCancel.Name = "_bntCancel";
             this._bntCancel.Size = new System.Drawing.Size(75, 23);
             this._bntCancel.TabIndex = 12;
@@ -109,7 +109,7 @@
             // 
             // _bntSave
             // 
-            this._bntSave.Location = new System.Drawing.Point(262, 293);
+            this._bntSave.Location = new System.Drawing.Point(94, 192);
             this._bntSave.Name = "_bntSave";
             this._bntSave.Size = new System.Drawing.Size(75, 23);
             this._bntSave.TabIndex = 13;
@@ -121,7 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 322);
+            this.ClientSize = new System.Drawing.Size(323, 241);
             this.Controls.Add(this._bntSave);
             this.Controls.Add(this._bntCancel);
             this.Controls.Add(this._chkDiscontinued);

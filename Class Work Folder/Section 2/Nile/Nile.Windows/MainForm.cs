@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Nile.Windows
@@ -18,18 +11,16 @@ namespace Nile.Windows
         
         }
 
-        private void MainForm_Load( object sender, EventArgs e)
-        { 
-
-        }
-
         private void button1_Click( object sender, EventArgs e )
         {
-            var child = new ProductDetailForm();
+            var product = new Product();
+            product.Name = "Product A";
+
+            var child = new ProductDetailForm("Product Details");
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            var product = child.Product;
+            //var product = child.Product;
         }
 
     }

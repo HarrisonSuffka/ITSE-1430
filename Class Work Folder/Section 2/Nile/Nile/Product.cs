@@ -10,6 +10,7 @@ namespace Nile
     /// <remarks>This will represent a product with other stuff.</remarks>
     public class Product
     {
+
        // public readonly Product None = new Product();
 
         /// <summary>Gets or sets the name</summary>
@@ -45,7 +46,7 @@ namespace Nile
         //    set { _isDiscontinued = value; }
         //}
 
-        public const decimal DiscontinuedDiscount = 0.10M;
+        public const decimal DiscontinuedDiscountRate = 0.10M;
 
         /// <summary> Gets the discounted price if item is discontinued </summary>
         public decimal DiscountedPrice
@@ -54,18 +55,38 @@ namespace Nile
             {
                 //if (this.IsDiscontinued)
                 if (IsDiscontinued)
-                    return Price * DiscontinuedDiscount;
+                    return Price * DiscontinuedDiscountRate;
 
                 return Price;
             }
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
+        /// <summary> Validates the object </summary>
+        /// <returns> The error message or null </returns>
+        public virtual string Validate()
+        {
+            //Name cannot be empty
+            if (String.IsNullOrEmpty(Name))
+                return "Name cannot be empty.";
+
+            //Price > 0
+            if (Price < 0)
+                return "Price must be >= 0 ";
+
+            return null;
         }
 
         private string _name;
         private string _description;
 
 
-        public int ICanOnlySetIt { get; private set; }
-        public int ICanOnlySetIt2 { get; }
+        //public int ICanOnlySetIt { get; private set; }
+        //public int ICanOnlySetIt2 { get; }
 
         //private readonly double _someValueICanNotChange = 10;
 
