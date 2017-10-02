@@ -21,7 +21,6 @@ namespace Nile.Windows
 
         public ProductDetailForm( string title ) : this()
         {
-
             Text = title;
         }
 
