@@ -46,10 +46,6 @@ namespace Nile.Windows
         /// <summary>Gets or sets the product being shown</summary>
         public Product Product { get; set; }
 
-        private void ProductDetailForm_Load( object sender, EventArgs e )
-        {
-
-        }
 
         private void ShowError ( string message, string title )
         {

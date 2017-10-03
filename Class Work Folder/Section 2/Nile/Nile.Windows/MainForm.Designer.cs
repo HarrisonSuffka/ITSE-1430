@@ -65,7 +65,7 @@
             // 
             this._MiFileExit.Name = "_MiFileExit";
             this._MiFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this._MiFileExit.Size = new System.Drawing.Size(134, 22);
+            this._MiFileExit.Size = new System.Drawing.Size(152, 22);
             this._MiFileExit.Text = "&Exit";
             this._MiFileExit.Click += new System.EventHandler(this.OnFileExit);
             // 

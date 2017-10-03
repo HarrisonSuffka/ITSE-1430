@@ -141,7 +141,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Product Details";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.ProductDetailForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
