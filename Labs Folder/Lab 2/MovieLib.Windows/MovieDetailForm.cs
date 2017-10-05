@@ -61,16 +61,15 @@ namespace MovieLib.Windows
 
         private decimal GetLength(TextBox control)
         {
-            if (Decimal.TryParse(_txtLength.Text, out decimal length))
+            if (Decimal.TryParse(control.Text, out decimal length))
                 return length;
 
-            DialogResult = DialogResult.Cancel;
             return -1;
         }
 
         private void OnSave( object sender, EventArgs e )
         {
-            if (ValidateChildren())
+            if (!ValidateChildren())
             {
                 return;
             };
@@ -123,6 +122,7 @@ namespace MovieLib.Windows
                 _errors.SetError(tb, "");
 
         }
+
     }
 
 
