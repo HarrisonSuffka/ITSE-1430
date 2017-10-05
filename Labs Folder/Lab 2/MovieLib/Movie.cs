@@ -1,10 +1,16 @@
-﻿using System;
+﻿/*
+ * Harrison Suffka
+ * ITSE 1430
+ * Lab 2
+ */
+
+ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Movie
+namespace MovieLib
 {
     /// <summary>Represents A Movie.</summary>
     /// <remarks>This will represent a movie with other stuff.</remarks>
@@ -21,8 +27,8 @@ namespace Movie
         /// <summary>Gets or sets the description</summary>
         public string Description
         {
-            get  { return _description ?? ""; }
-            set  { _description = value?.Trim(); }
+            get { return _description ?? ""; }
+            set { _description = value?.Trim(); }
         }
 
 
@@ -45,7 +51,7 @@ namespace Movie
             if (String.IsNullOrEmpty(Title))
                 return "Title cannot be empty.";
 
-            //Price > 0
+            //Length > 0
             if (Length < 0)
                 return "Length must be >= 0 ";
 
@@ -54,7 +60,6 @@ namespace Movie
 
         private string _title;
         private string _description;
-
 
     }
 }

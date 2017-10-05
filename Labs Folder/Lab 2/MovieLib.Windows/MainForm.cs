@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Harrison Suffka
+ * ITSE 1430
+ * Lab 2
+ */
+
+ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,58 +23,47 @@ namespace MovieLib.Windows
             InitializeComponent();
         }
 
-
         private void OnFileExit( object sender, EventArgs e )
         {
             Close();
         }
 
-
-        private void OnProductAdd( object sender, EventArgs e )
+        private void OnMovieAdd( object sender, EventArgs e )
         {
-            var child = new MovieDetailForm("Product Details");
+            var child = new MovieDetailForm("Movie Details");
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
-
-            //TODO:Save Product
 
             _movie = child.Movie;
         }
 
-        private void OnProductEdit( object sender, EventArgs e )
+        private void OnMovieEdit( object sender, EventArgs e )
         {
-            var child = new MovieDetailForm("Product Details");
+            var child = new MovieDetailForm("Movie Details");
             child.Movie = _movie;
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //TODO:Save Product
-
             _movie = child.Movie;
         }
 
-        private void OnProductDelete( object sender, EventArgs e )
+        private void OnMovieDelete( object sender, EventArgs e )
         {
             if (_movie == null)
                 return;
 
-            //Confirm
-
-            if (MessageBox.Show(this, $"Are you sure you want to delete '{ _title.Name}'?", "Delete",
+            if (MessageBox.Show(this, $"Are you sure you want to delete '{ _movie.Title}'?", "Delete",
                                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
-
-            //TODO: Delete Product
             _movie = null;
         }
-
-        private Movie _movie;
-
-        private void OnHelpAbout( object sender, EventArgs e )
+           private void OnHelpAbout( object sender, EventArgs e )
         {
             var about = new AboutBox();
             about.ShowDialog(this);
         }
+
+        private Movie _movie;
 
     }
 }

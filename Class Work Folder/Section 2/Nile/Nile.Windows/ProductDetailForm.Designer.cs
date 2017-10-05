@@ -42,77 +42,88 @@
             // _LbName
             // 
             this._LbName.AutoSize = true;
-            this._LbName.Location = new System.Drawing.Point(0, 19);
+            this._LbName.Location = new System.Drawing.Point(25, 15);
             this._LbName.Name = "_LbName";
             this._LbName.Size = new System.Drawing.Size(38, 13);
-            this._LbName.TabIndex = 0;
+            this._LbName.TabIndex = 6;
             this._LbName.Text = "Name:";
             // 
             // _lbDescription
             // 
             this._lbDescription.AutoSize = true;
-            this._lbDescription.Location = new System.Drawing.Point(0, 74);
+            this._lbDescription.Location = new System.Drawing.Point(0, 46);
             this._lbDescription.Name = "_lbDescription";
             this._lbDescription.Size = new System.Drawing.Size(63, 13);
-            this._lbDescription.TabIndex = 2;
+            this._lbDescription.TabIndex = 7;
             this._lbDescription.Text = "Description:";
             // 
             // _LbPrice
             // 
+            this._LbPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this._LbPrice.AutoSize = true;
-            this._LbPrice.Location = new System.Drawing.Point(4, 118);
+            this._LbPrice.Location = new System.Drawing.Point(25, 114);
             this._LbPrice.Name = "_LbPrice";
             this._LbPrice.Size = new System.Drawing.Size(34, 13);
-            this._LbPrice.TabIndex = 3;
+            this._LbPrice.TabIndex = 8;
             this._LbPrice.Text = "Price:";
             // 
             // _txtName
             // 
+            this._txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this._txtName.Location = new System.Drawing.Point(94, 12);
+            this._txtName.MinimumSize = new System.Drawing.Size(217, 20);
             this._txtName.Name = "_txtName";
             this._txtName.Size = new System.Drawing.Size(217, 20);
-            this._txtName.TabIndex = 4;
+            this._txtName.TabIndex = 0;
             // 
             // _txtDescription
             // 
-            this._txtDescription.Location = new System.Drawing.Point(94, 67);
+            this._txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._txtDescription.Location = new System.Drawing.Point(94, 43);
+            this._txtDescription.Multiline = true;
             this._txtDescription.Name = "_txtDescription";
-            this._txtDescription.Size = new System.Drawing.Size(217, 20);
-            this._txtDescription.TabIndex = 5;
+            this._txtDescription.Size = new System.Drawing.Size(217, 62);
+            this._txtDescription.TabIndex = 1;
             // 
             // _txtPrice
             // 
+            this._txtPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this._txtPrice.Location = new System.Drawing.Point(94, 111);
             this._txtPrice.Name = "_txtPrice";
             this._txtPrice.Size = new System.Drawing.Size(217, 20);
-            this._txtPrice.TabIndex = 6;
+            this._txtPrice.TabIndex = 2;
             // 
             // _chkDiscontinued
             // 
+            this._chkDiscontinued.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this._chkDiscontinued.AutoSize = true;
-            this._chkDiscontinued.Location = new System.Drawing.Point(3, 155);
+            this._chkDiscontinued.Location = new System.Drawing.Point(94, 153);
             this._chkDiscontinued.Name = "_chkDiscontinued";
             this._chkDiscontinued.Size = new System.Drawing.Size(105, 17);
-            this._chkDiscontinued.TabIndex = 11;
+            this._chkDiscontinued.TabIndex = 3;
             this._chkDiscontinued.Text = "Is Discontinued?";
             this._chkDiscontinued.UseVisualStyleBackColor = true;
             // 
             // _bntCancel
             // 
+            this._bntCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._bntCancel.Location = new System.Drawing.Point(202, 192);
             this._bntCancel.Name = "_bntCancel";
             this._bntCancel.Size = new System.Drawing.Size(75, 23);
-            this._bntCancel.TabIndex = 12;
+            this._bntCancel.TabIndex = 5;
             this._bntCancel.Text = "Cancel";
             this._bntCancel.UseVisualStyleBackColor = true;
             this._bntCancel.Click += new System.EventHandler(this.OnCancel);
             // 
             // _bntSave
             // 
+            this._bntSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._bntSave.Location = new System.Drawing.Point(94, 192);
             this._bntSave.Name = "_bntSave";
             this._bntSave.Size = new System.Drawing.Size(75, 23);
-            this._bntSave.TabIndex = 13;
+            this._bntSave.TabIndex = 4;
             this._bntSave.Text = "Save";
             this._bntSave.UseVisualStyleBackColor = true;
             this._bntSave.Click += new System.EventHandler(this.OnSave);
@@ -131,7 +142,6 @@
             this.Controls.Add(this._LbPrice);
             this.Controls.Add(this._lbDescription);
             this.Controls.Add(this._LbName);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ProductDetailForm";

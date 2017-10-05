@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Harrison Suffka
+ * ITSE 1430
+ * Lab 2
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +30,7 @@ namespace MovieLib.Windows
             Text = title;
         }
 
-        public MovieDetailForm( string title, Movie movie ) : this(title)
+        public MovieDetailForm( string title , Movie movie ) : this(title)
         {
             Movie = movie;
         }
@@ -38,27 +44,42 @@ namespace MovieLib.Windows
             {
                 _txtTitle.Text = Movie.Title;
                 _txtDescription.Text = Movie.Description;
-                _txtLength.Text = Movie.Price.ToString();
-                _chkOwned.Checked = Movie.IsDiscontinued;
+                _txtLength.Text = Movie.Length.ToString();
+                _chkOwned.Checked = Movie.IsOwned;
             };
+
+            ValidateChildren();
         }
 
         /// <summary>Gets or sets the Movie being shown</summary>
         public Movie Movie { get; set; }
-
 
         private void ShowError( string message, string title )
         {
             MessageBox.Show(this, message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private decimal GetLength(TextBox control)
+        {
+            if (Decimal.TryParse(_txtLength.Text, out decimal length))
+                return length;
+
+            DialogResult = DialogResult.Cancel;
+            return -1;
+        }
+
         private void OnSave( object sender, EventArgs e )
         {
-            var product = new Movie();
-            product.Name = _txtTitle.Text;
-            product.Description = _txtDescription.Text;
-            product.Price = GetLength();
-            product.IsDiscontinued = _chkOwned.Checked;
+            if (ValidateChildren())
+            {
+                return;
+            };
+
+            var movie = new Movie();
+            movie.Title = _txtTitle.Text;
+            movie.Description = _txtDescription.Text;
+            movie.Length = GetLength(_txtLength);
+            movie.IsOwned = _chkOwned.Checked;
 
             // Add Validation
             var error = movie.Validate();
@@ -70,22 +91,37 @@ namespace MovieLib.Windows
             }
 
             Movie = movie;
-            this.DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
             Close();
-        }
-
-        private decimal GetLength()
-        {
-            if (Decimal.TryParse(_txtLength.Text, out decimal length))
-                return length;
-            //TODO: Validate Price
-            return 0;
         }
 
         private void OnCancel( object sender, EventArgs e )
         {
-            this.DialogResult = DialogResult.Cancel;
+            DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        private void OnValidatingLength( object sender, CancelEventArgs e )
+        {
+            var tb = sender as TextBox;
+
+            if (GetLength(tb) < 0)
+            {
+                e.Cancel = true;
+                _errors.SetError(_txtLength, "Length must be >= 0.");
+            } else
+                _errors.SetError(_txtLength, "");
+
+        }
+
+        private void OnValidatingTitle( object sender, CancelEventArgs e )
+        {
+            var tb = sender as TextBox;
+            if (String.IsNullOrEmpty(tb.Text))
+                _errors.SetError(tb, "Title is required.");
+            else
+                _errors.SetError(tb, "");
+
         }
     }
 
