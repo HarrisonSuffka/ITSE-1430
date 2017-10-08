@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.gitignore"
+    "\\.gitignore",
+    "\\Labs Folder",
+    "\\Labs Folder\\Lab 2",
+    "\\Labs Folder\\Lab 2\\MovieLib.Windows"
   ],
-  "SelectedNode": "\\.gitignore\\.gitignore",
+  "SelectedNode": "\\Labs Folder\\Lab 2\\MovieLib.Windows\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
