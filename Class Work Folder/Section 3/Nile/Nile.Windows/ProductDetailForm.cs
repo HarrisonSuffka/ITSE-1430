@@ -55,6 +55,7 @@ namespace Nile.Windows
         private void OnSave( object sender, EventArgs e )
         {
             var product = new Product();
+            product.Id = Product?.Id ?? 0;
             product.Name = _txtName.Text;
             product.Description = _txtDescription.Text;
             product.Price = GetPrice(_txtPrice);
@@ -71,7 +72,7 @@ namespace Nile.Windows
             }
 
             Product = product;
-            this.DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
             Close();
         }
 
@@ -85,7 +86,7 @@ namespace Nile.Windows
 
         private void OnCancel( object sender, EventArgs e )
         {
-            this.DialogResult = DialogResult.Cancel;
+            DialogResult = DialogResult.Cancel;
             Close();
         }
 

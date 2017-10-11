@@ -15,8 +15,21 @@ namespace Nile.Windows
         {
             base.OnLoad(e);
 
-            var products = _database.GetAll();
+            UpdateList();
 
+        }
+
+        private Product GetSelectedProduct ()
+        {
+            return _listProducts.SelectedItem as Product;
+        }
+
+        private void UpdateList()
+        {
+            _listProducts.Items.Clear();
+
+            foreach (var product in _database.GetAll())
+                _listProducts.Items.Add(product);
         }
 
         //private int FindAvailableElement()
@@ -60,6 +73,8 @@ namespace Nile.Windows
                 return;
 
             _database.Add(child.Product);
+            UpdateList();
+
         }
 
         private void OnProductEdit( object sender, EventArgs e )
@@ -73,7 +88,12 @@ namespace Nile.Windows
             //    return;
             //}
 
-            var product = _database.Get();
+            var product = GetSelectedProduct();
+            if (product == null)
+            {
+                MessageBox.Show("No products available");
+                return;
+            }
 
             var child = new ProductDetailForm("Product Details");
             child.Product = product;
@@ -83,6 +103,8 @@ namespace Nile.Windows
             //TODO:Save Product
 
             _database.Update(child.Product);
+            UpdateList();
+
         }
 
         private void OnProductDelete( object sender, EventArgs e )
@@ -93,7 +115,12 @@ namespace Nile.Windows
             //    return;
 
             //var _product = _products[index]; 
-            var product = _database.Get();
+            //var product = _database.Get();
+
+            var product = GetSelectedProduct();
+            if (product == null)
+                return;
+
             //Confirm
 
             if (MessageBox.Show(this, $"Are you sure you want to delete '{ product.Name}'?", "Delete",
@@ -101,7 +128,9 @@ namespace Nile.Windows
                 return;
 
             //TODO: Delete Product
-            _database.Remove(product);
+            _database.Remove(Product);
+            UpdateList();
+
         }
         private void OnHelpAbout( object sender, EventArgs e )
         {

@@ -11,6 +11,9 @@ namespace Nile
     public class Product
     {
 
+
+        public int Id { get; set; }
+
        // public readonly Product None = new Product();
 
         /// <summary>Gets or sets the name</summary>

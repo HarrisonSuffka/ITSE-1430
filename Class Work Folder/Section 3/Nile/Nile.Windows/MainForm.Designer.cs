@@ -38,6 +38,7 @@
             this._MiProductDelete = new System.Windows.Forms.ToolStripMenuItem();
             this._MiHelp = new System.Windows.Forms.ToolStripMenuItem();
             this._MiHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this._listProducts = new System.Windows.Forms.ListBox();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +66,7 @@
             // 
             this._MiFileExit.Name = "_MiFileExit";
             this._MiFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this._MiFileExit.Size = new System.Drawing.Size(152, 22);
+            this._MiFileExit.Size = new System.Drawing.Size(134, 22);
             this._MiFileExit.Text = "&Exit";
             this._MiFileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
@@ -118,9 +119,18 @@
             // _MiHelpAbout
             // 
             this._MiHelpAbout.Name = "_MiHelpAbout";
-            this._MiHelpAbout.Size = new System.Drawing.Size(152, 22);
+            this._MiHelpAbout.Size = new System.Drawing.Size(107, 22);
             this._MiHelpAbout.Text = "&About";
             this._MiHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
+            // 
+            // _listProducts
+            // 
+            this._listProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._listProducts.FormattingEnabled = true;
+            this._listProducts.Location = new System.Drawing.Point(0, 24);
+            this._listProducts.Name = "_listProducts";
+            this._listProducts.Size = new System.Drawing.Size(618, 436);
+            this._listProducts.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -129,6 +139,7 @@
             this.AutoSize = true;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(618, 460);
+            this.Controls.Add(this._listProducts);
             this.Controls.Add(this.MainMenu);
             this.MainMenuStrip = this.MainMenu;
             this.Name = "MainForm";
@@ -152,6 +163,7 @@
         private System.Windows.Forms.ToolStripMenuItem _MiProductDelete;
         private System.Windows.Forms.ToolStripMenuItem _MiHelp;
         private System.Windows.Forms.ToolStripMenuItem _MiHelpAbout;
+        private System.Windows.Forms.ListBox _listProducts;
     }
 }
 
