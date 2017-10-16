@@ -63,16 +63,20 @@ namespace Nile
 
         /// <summary>Get a specific product.</summary>
         /// <returns>The product, if it exists.</returns>
-        public Product Get(int id)
+        public Product Get ( int id )
         {
             if (id <= 0)
                 return null;
 
-            foreach ( var product in _products)
-            {
-                if (product.Id == id)
-                    return CopyProduct(product);
-            }
+            //foreach ( var product in _products)
+            //{
+            //    if (product.Id == id)
+            //        return CopyProduct(product);
+            //}
+
+            //return (product != null) ? CopyProduct(product) : null;
+
+            var product = FindProduct(id);
 
             return (product != null) ? CopyProduct(product) : null;
         }
