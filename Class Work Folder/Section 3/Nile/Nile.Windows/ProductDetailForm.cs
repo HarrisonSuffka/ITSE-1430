@@ -54,22 +54,40 @@ namespace Nile.Windows
 
         private void OnSave( object sender, EventArgs e )
         {
-            var product = new Product();
-            product.Id = Product?.Id ?? 0;
-            product.Name = _txtName.Text;
-            product.Description = _txtDescription.Text;
-            product.Price = GetPrice(_txtPrice);
-            product.IsDiscontinued = _chkDiscontinued.Checked;
+            //var product = new Product();
+            //product.Id = Product?.Id ?? 0;
+            //product.Name = _txtName.Text;
+            //product.Description = _txtDescription.Text;
+            //product.Price = GetPrice(_txtPrice);
+            //product.IsDiscontinued = _chkDiscontinued.Checked;
 
-            // Add Validation
-            var error = product.Validate();
-            if (!String.IsNullOrEmpty(error))
+            var product = new Product() 
+            {
+                Id = Product?.Id ?? 0,
+                Name = _txtName.Text,
+                Description = _txtDescription.Text,
+                Price = GetPrice(_txtPrice),
+                IsDiscontinued = _chkDiscontinued.Checked,
+            };
+
+            //Using IValidatableObject
+            if (!ObjectValidator.TryValidate(product, out var errors))
             {
                 //Show the error
                 //MessageBox.Show(this, error, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ShowError(error, "Validation Error");
+                ShowError("Not Valid", "Validation Error");
                 return;
             }
+
+            // Add Validation
+            //if (!String.IsNullOrEmpty(error))
+            //var error = product.Validate();
+            //{
+            //    //Show the error
+            //    //MessageBox.Show(this, error, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    ShowError(error, "Validation Error");
+            //    return;
+            //}
 
             Product = product;
             DialogResult = DialogResult.OK;

@@ -77,7 +77,7 @@
             this._txtName.Location = new System.Drawing.Point(94, 12);
             this._txtName.MinimumSize = new System.Drawing.Size(217, 20);
             this._txtName.Name = "_txtName";
-            this._txtName.Size = new System.Drawing.Size(217, 20);
+            this._txtName.Size = new System.Drawing.Size(235, 20);
             this._txtName.TabIndex = 0;
             this._txtName.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidatingName);
             // 
@@ -88,7 +88,7 @@
             this._txtDescription.Location = new System.Drawing.Point(94, 43);
             this._txtDescription.Multiline = true;
             this._txtDescription.Name = "_txtDescription";
-            this._txtDescription.Size = new System.Drawing.Size(217, 62);
+            this._txtDescription.Size = new System.Drawing.Size(235, 62);
             this._txtDescription.TabIndex = 1;
             // 
             // _txtPrice
@@ -114,7 +114,7 @@
             // _bntCancel
             // 
             this._bntCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._bntCancel.Location = new System.Drawing.Point(202, 192);
+            this._bntCancel.Location = new System.Drawing.Point(220, 192);
             this._bntCancel.Name = "_bntCancel";
             this._bntCancel.Size = new System.Drawing.Size(75, 23);
             this._bntCancel.TabIndex = 5;
@@ -125,7 +125,7 @@
             // _bntSave
             // 
             this._bntSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._bntSave.Location = new System.Drawing.Point(94, 192);
+            this._bntSave.Location = new System.Drawing.Point(112, 192);
             this._bntSave.Name = "_bntSave";
             this._bntSave.Size = new System.Drawing.Size(75, 23);
             this._bntSave.TabIndex = 4;
@@ -141,7 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(323, 241);
+            this.ClientSize = new System.Drawing.Size(341, 241);
             this.Controls.Add(this._bntSave);
             this.Controls.Add(this._bntCancel);
             this.Controls.Add(this._chkDiscontinued);

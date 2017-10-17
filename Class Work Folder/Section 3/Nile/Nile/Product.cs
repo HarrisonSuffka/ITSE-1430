@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,13 +9,12 @@ namespace Nile
 {
     /// <summary>Represents A Product.</summary>
     /// <remarks>This will represent a product with other stuff.</remarks>
-    public class Product
+    public class Product : IValidatableObject
     {
 
+       // public readonly Product None = new Product();
 
         public int Id { get; set; }
-
-       // public readonly Product None = new Product();
 
         /// <summary>Gets or sets the name</summary>
         /// <value> Never return null.</value>
@@ -84,17 +84,35 @@ namespace Nile
 
         /// <summary> Validates the object </summary>
         /// <returns> The error message or null </returns>
-        public virtual string Validate()
+        //public virtual string Validate()
+        //{
+        //    //Name cannot be empty
+        //    if (String.IsNullOrEmpty(Name))
+        //        return "Name cannot be empty.";
+
+        //    //Price > 0
+        //    if (Price < 0)
+        //        return "Price must be >= 0 ";
+
+        //    return null;
+        //}
+        //Not Needed because item below was added
+
+        public IEnumerable<ValidationResult> Validate( ValidationContext validationContext )
         {
+            //var errors = new List<ValidationResult>();
+
             //Name cannot be empty
             if (String.IsNullOrEmpty(Name))
-                return "Name cannot be empty.";
+                yield return new ValidationResult("Name cannot be empty.", new[] { nameof(Name) });
+            //errors.Add(new ValidationResult("Name cannot be empty.", new[] { nameof(Name) }));
 
             //Price > 0
             if (Price < 0)
-                return "Price must be >= 0 ";
+                yield return new ValidationResult("Price must be >= 0 ", new[] { nameof(Price) });
+            //errors.Add(new ValidationResult("Price must be >= 0 ", new[] { nameof(Price) }));
 
-            return null;
+            //return errors;
         }
 
         private string _name;

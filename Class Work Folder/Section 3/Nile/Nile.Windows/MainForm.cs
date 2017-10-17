@@ -128,7 +128,7 @@ namespace Nile.Windows
                 return;
 
             //TODO: Delete Product
-            _database.Remove(Product);
+            _database.Remove(product.Id);
             UpdateList();
 
         }

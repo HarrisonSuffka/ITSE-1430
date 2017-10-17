@@ -10,28 +10,38 @@ namespace Nile
     public class ProductDatabase
     {
         public ProductDatabase()
-        {
-            var product = new Product();
-             product.Name = "Galaxy S7";
-             product.Price = 650;
-            Add(product);
+        {            ////Long Way
+                     //var product = new Product();
+                     //product.Name = "Samsung Note 7";
+                     //product.Price = 150;
+                     //product.IsDiscontinued = true;
+                     //Add(product);
 
-             product = new Product();
-             product.Name = "Samsung Note 7";
-             product.Price = 150;
-             product.IsDiscontinued = true;
-            Add(product);
+            ////Short Way
+            //_products.Add(new Product() {Id = 1, Name = "Galaxy S7", Price = 650 });
+            //_products.Add(new Product() {Id = 2, Name = "Samsung Note 7", Price = 150, IsDiscontinued = true });
+            //_products.Add(new Product() {Id = 3, Name = "Windows Phone", Price = 100 });
+            //_products.Add(new Product() {Id = 4, Name = "iPhone X", Price = 1900 , IsDiscontinued = true});
 
-            product = new Product();
-             product.Name = "Windows Phone";
-             product.Price = 100;
-            Add(product);
+            ////Collection Initializer syntax
+            //_products = new List<Product>() 
+            //{
+            //    new Product() { Id = 1, Name = "Galaxy S7", Price = 650 },
+            //    new Product() { Id = 2, Name = "Samsung Note 7", Price = 150, IsDiscontinued = true },
+            //    new Product() { Id = 3, Name = "Windows Phone", Price = 100 },
+            //    new Product() { Id = 4, Name = "iPhone X", Price = 1900, IsDiscontinued = true },
+            //};
 
-            product = new Product();
-             product.Name = "iPhone X";
-             product.Price = 1900;
-             product.IsDiscontinued = true;
-            Add(product);
+            //Collection Initializer syntax with array
+            _products.AddRange( new [] 
+           {
+                new Product() { Id = 1, Name = "Galaxy S7", Price = 650 },
+                new Product() { Id = 2, Name = "Samsung Note 7", Price = 150, IsDiscontinued = true },
+                new Product() { Id = 3, Name = "Windows Phone", Price = 100 },
+                new Product() { Id = 4, Name = "iPhone X", Price = 1900, IsDiscontinued = true },
+            });
+
+            _nextId = _products.Count + 1;
 
         }
 
@@ -44,8 +54,13 @@ namespace Nile
             if (product == null)
                 return null;
 
-            if (!String.IsNullOrEmpty(product.Validate()))
-                return null;
+            //Using IValidatableObject
+            if (!ObjectValidator.TryValidate(product, out var errors))
+            return null;
+
+            //if (!String.IsNullOrEmpty(product.Validate()))
+            //    return null;
+
 
             //Emulate database by storing copy 
             var newProduct = CopyProduct(product);
@@ -137,8 +152,12 @@ namespace Nile
            if (product == null)
                     return null;
 
-            if (!String.IsNullOrEmpty(product.Validate()))
-                 return null;
+            //Using IValidatableObject
+            if (!ObjectValidator.TryValidate(product, out var errors))
+                return null;
+
+            //if (!String.IsNullOrEmpty(product.Validate()))
+            //     return null;
 
             //get existing product 
             var existing = FindProduct(product.Id);
