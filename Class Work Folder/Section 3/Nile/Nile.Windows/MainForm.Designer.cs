@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._MiFileExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,8 +40,8 @@
             this._MiHelp = new System.Windows.Forms.ToolStripMenuItem();
             this._MiHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this._GridProducts = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIsDiscontinued = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -132,45 +133,64 @@
             // _GridProducts
             // 
             this._GridProducts.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Gray;
+            this._GridProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this._GridProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._GridProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
             this.colName,
+            this.colID,
             this.colDescription,
             this.colPrice,
             this.colIsDiscontinued});
             this._GridProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             this._GridProducts.Location = new System.Drawing.Point(0, 24);
             this._GridProducts.Name = "_GridProducts";
+            this._GridProducts.RowHeadersVisible = false;
+            this._GridProducts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this._GridProducts.Size = new System.Drawing.Size(618, 436);
             this._GridProducts.TabIndex = 1;
             // 
+            // colName
+            // 
+            this.colName.DataPropertyName = "Name";
+            this.colName.FillWeight = 200F;
+            this.colName.Frozen = true;
+            this.colName.HeaderText = "Name";
+            this.colName.MaxInputLength = 100;
+            this.colName.MinimumWidth = 100;
+            this.colName.Name = "colName";
+            // 
             // colID
             // 
+            this.colID.DataPropertyName = "Id";
             this.colID.HeaderText = "ID";
             this.colID.Name = "colID";
             this.colID.ReadOnly = true;
             this.colID.Visible = false;
             // 
-            // colName
-            // 
-            this.colName.HeaderText = "Name";
-            this.colName.Name = "colName";
-            // 
             // colDescription
             // 
+            this.colDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescription.DataPropertyName = "Description";
+            this.colDescription.FillWeight = 300F;
             this.colDescription.HeaderText = "Description";
+            this.colDescription.MinimumWidth = 200;
             this.colDescription.Name = "colDescription";
             // 
             // colPrice
             // 
+            this.colPrice.DataPropertyName = "Price";
             this.colPrice.HeaderText = "Price";
+            this.colPrice.MinimumWidth = 100;
             this.colPrice.Name = "colPrice";
             // 
             // colIsDiscontinued
             // 
+            this.colIsDiscontinued.DataPropertyName = "IsDiscontinued";
             this.colIsDiscontinued.HeaderText = "Is Discontinued?";
             this.colIsDiscontinued.Name = "colIsDiscontinued";
+            this.colIsDiscontinued.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // MainForm
             // 
@@ -205,8 +225,8 @@
         private System.Windows.Forms.ToolStripMenuItem _MiHelp;
         private System.Windows.Forms.ToolStripMenuItem _MiHelpAbout;
         private System.Windows.Forms.DataGridView _GridProducts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colIsDiscontinued;
