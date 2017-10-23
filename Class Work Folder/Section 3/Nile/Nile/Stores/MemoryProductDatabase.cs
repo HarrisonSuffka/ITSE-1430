@@ -68,7 +68,6 @@ namespace Nile.Stores
              return CopyProduct(newProduct);
         }
 
-
         private Product CopyProduct( Product product )
         {
             if (product == null)

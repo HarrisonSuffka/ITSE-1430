@@ -11,38 +11,11 @@ namespace Nile.Stores
     {
         public SeedMemoryProductDatabase()
         {
-            ////Long Way
-            //var product = new Product();
-            //product.Name = "Samsung Note 7";
-            //product.Price = 150;
-            //product.IsDiscontinued = true;
-            //Add(product);
 
-            ////Short Way
-            //_products.Add(new Product() {Id = 1, Name = "Galaxy S7", Price = 650 });
-            //_products.Add(new Product() {Id = 2, Name = "Samsung Note 7", Price = 150, IsDiscontinued = true });
-            //_products.Add(new Product() {Id = 3, Name = "Windows Phone", Price = 100 });
-            //_products.Add(new Product() {Id = 4, Name = "iPhone X", Price = 1900 , IsDiscontinued = true});
-
-            ////Collection Initializer syntax
-            //_products = new List<Product>() 
-            //{
-            //    new Product() { Id = 1, Name = "Galaxy S7", Price = 650 },
-            //    new Product() { Id = 2, Name = "Samsung Note 7", Price = 150, IsDiscontinued = true },
-            //    new Product() { Id = 3, Name = "Windows Phone", Price = 100 },
-            //    new Product() { Id = 4, Name = "iPhone X", Price = 1900, IsDiscontinued = true },
-            //};
-
-            //Collection Initializer syntax with array
-            //_products.AddRange( new [] 
-            //{
             AddCore(new Product() { Id = 1, Name = "Galaxy S7", Price = 650 });
             AddCore(new Product() { Id = 2, Name = "Samsung Note 7", Price = 150, IsDiscontinued = true });
             AddCore(new Product() { Id = 3, Name = "Windows Phone", Price = 100 });
             AddCore(new Product() { Id = 4, Name = "iPhone X", Price = 1900, IsDiscontinued = true });
-            //}
-
-            //_nextId = _products.Count + 1;
 
         }
     }

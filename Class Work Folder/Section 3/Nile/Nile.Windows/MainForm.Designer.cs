@@ -38,8 +38,14 @@
             this._MiProductDelete = new System.Windows.Forms.ToolStripMenuItem();
             this._MiHelp = new System.Windows.Forms.ToolStripMenuItem();
             this._MiHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this._listProducts = new System.Windows.Forms.ListBox();
+            this._GridProducts = new System.Windows.Forms.DataGridView();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIsDiscontinued = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.MainMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._GridProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -123,14 +129,48 @@
             this._MiHelpAbout.Text = "&About";
             this._MiHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 
-            // _listProducts
+            // _GridProducts
             // 
-            this._listProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._listProducts.FormattingEnabled = true;
-            this._listProducts.Location = new System.Drawing.Point(0, 24);
-            this._listProducts.Name = "_listProducts";
-            this._listProducts.Size = new System.Drawing.Size(618, 436);
-            this._listProducts.TabIndex = 1;
+            this._GridProducts.AllowUserToOrderColumns = true;
+            this._GridProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._GridProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colID,
+            this.colName,
+            this.colDescription,
+            this.colPrice,
+            this.colIsDiscontinued});
+            this._GridProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._GridProducts.Location = new System.Drawing.Point(0, 24);
+            this._GridProducts.Name = "_GridProducts";
+            this._GridProducts.Size = new System.Drawing.Size(618, 436);
+            this._GridProducts.TabIndex = 1;
+            // 
+            // colID
+            // 
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Visible = false;
+            // 
+            // colName
+            // 
+            this.colName.HeaderText = "Name";
+            this.colName.Name = "colName";
+            // 
+            // colDescription
+            // 
+            this.colDescription.HeaderText = "Description";
+            this.colDescription.Name = "colDescription";
+            // 
+            // colPrice
+            // 
+            this.colPrice.HeaderText = "Price";
+            this.colPrice.Name = "colPrice";
+            // 
+            // colIsDiscontinued
+            // 
+            this.colIsDiscontinued.HeaderText = "Is Discontinued?";
+            this.colIsDiscontinued.Name = "colIsDiscontinued";
             // 
             // MainForm
             // 
@@ -139,13 +179,14 @@
             this.AutoSize = true;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(618, 460);
-            this.Controls.Add(this._listProducts);
+            this.Controls.Add(this._GridProducts);
             this.Controls.Add(this.MainMenu);
             this.MainMenuStrip = this.MainMenu;
             this.Name = "MainForm";
             this.Text = "Nile";
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._GridProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,7 +204,12 @@
         private System.Windows.Forms.ToolStripMenuItem _MiProductDelete;
         private System.Windows.Forms.ToolStripMenuItem _MiHelp;
         private System.Windows.Forms.ToolStripMenuItem _MiHelpAbout;
-        private System.Windows.Forms.ListBox _listProducts;
+        private System.Windows.Forms.DataGridView _GridProducts;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colIsDiscontinued;
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Nile.Windows
@@ -15,21 +16,21 @@ namespace Nile.Windows
         {
             base.OnLoad(e);
 
+            _GridProducts.AutoGenerateColumns = false;
+
             UpdateList();
 
         }
 
         private Product GetSelectedProduct ()
         {
-            return _listProducts.SelectedItem as Product;
+            //return _listProducts.SelectedItem as Product;
+            return null;
         }
 
         private void UpdateList()
         {
-            _listProducts.Items.Clear();
-
-            foreach (var product in _database.GetAll())
-                _listProducts.Items.Add(product);
+            _GridProducts.DataSource = _database.GetAll().ToList();
         }
 
         //private int FindAvailableElement()
@@ -95,8 +96,9 @@ namespace Nile.Windows
                 return;
             }
 
-            var child = new ProductDetailForm("Product Details");
-            child.Product = product;
+            var child = new ProductDetailForm("Product Details") {
+                Product = product
+            };
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
 
@@ -147,7 +149,7 @@ namespace Nile.Windows
         }
 
         //private Product[] _products = new Product[100];
-        private IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
+        private IProductDatabase _database = new Nile.Stores.SeedMemoryProductDatabase();
 
     }
 }
