@@ -12,48 +12,41 @@ namespace Nile.Windows
 {
     public partial class ProductDetailForm : Form
     {
-        #region Construction
 
-        public ProductDetailForm () //: base()
+        #region Construction
+        public ProductDetailForm() //: base()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
-        
-        public ProductDetailForm ( string title ) : this()
+
+        public ProductDetailForm( string title ) : this()
         {
             Text = title;
         }
 
-        public ProductDetailForm( string title, Product product ) : this(title)
+        public ProductDetailForm( string title , Product product) : this(title)
         {
             Product = product;
         }
         #endregion
 
-        protected override void OnLoad( EventArgs e )
+         protected override void OnLoad( EventArgs e )
         {
             base.OnLoad(e);
 
-            if (Product != null)
+            if ( Product != null)
             {
                 _txtName.Text = Product.Name;
                 _txtDescription.Text = Product.Description;
                 _txtPrice.Text = Product.Price.ToString();
                 _chkDiscontinued.Checked = Product.IsDiscontinued;
             };
-
-            ValidateChildren();
         }
 
-        /// <summary>Gets or sets the product being shown.</summary>
+        /// <summary>Gets or sets the product being shown</summary>
         public Product Product { get; set; }
 
-        private void OnCancel( object sender, EventArgs e )
-        {
-            this.DialogResult = DialogResult.Cancel;
-            Close();
-        }
-        
+
         private void ShowError ( string message, string title )
         {
             MessageBox.Show(this, message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -61,11 +54,6 @@ namespace Nile.Windows
 
         private void OnSave( object sender, EventArgs e )
         {
-            if (!ValidateChildren())
-            {
-                return;
-            };
-
             //var product = new Product();
             //product.Id = Product?.Id ?? 0;
             //product.Name = _txtName.Text;
@@ -73,8 +61,8 @@ namespace Nile.Windows
             //product.Price = GetPrice(_txtPrice);
             //product.IsDiscontinued = _chkDiscontinued.Checked;
 
-            //Object initializer syntax
-            var product = new Product() {
+            var product = new Product() 
+            {
                 Id = Product?.Id ?? 0,
                 Name = _txtName.Text,
                 Description = _txtDescription.Text,
@@ -82,34 +70,44 @@ namespace Nile.Windows
                 IsDiscontinued = _chkDiscontinued.Checked,
             };
 
-            //System.ComponentModel.DataAnnotations.IValidatableObject vo = product;
-            //vo.
-
-            //Add validation
-            //var error = product.Validate();
-            //if (!String.IsNullOrEmpty(error))
             //Using IValidatableObject
-            if (!ObjectValidator.TryValidate(product, out var errors))                
+            if (!ObjectValidator.TryValidate(product, out var errors))
             {
                 //Show the error
-                ShowError("Not valid", "Validation Error");
+                //MessageBox.Show(this, error, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowError("Not Valid", "Validation Error");
                 return;
-            };
+            }
+
+            // Add Validation
+            //if (!String.IsNullOrEmpty(error))
+            //var error = product.Validate();
+            //{
+            //    //Show the error
+            //    //MessageBox.Show(this, error, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    ShowError(error, "Validation Error");
+            //    return;
+            //}
 
             Product = product;
-            this.DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
             Close();
         }
 
         private decimal GetPrice ( TextBox control )
         {
-            if (Decimal.TryParse(control.Text, out decimal price))
+            if (Decimal.TryParse(_txtPrice.Text, out decimal price))
                 return price;
-
-            //Validate price            
-            return -1;
+            //TODO: Validate Price
+            return 0;
         }
-        
+
+        private void OnCancel( object sender, EventArgs e )
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
+
         private void OnValidatingPrice( object sender, CancelEventArgs e )
         {
             var tb = sender as TextBox;
