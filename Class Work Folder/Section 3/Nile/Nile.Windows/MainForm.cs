@@ -36,27 +36,7 @@ namespace Nile.Windows
             _BSProducts.DataSource = _database.GetAll().ToList();
         }
 
-        //private int FindAvailableElement()
-        //{
-        //    for ( var i = 0; i< _products.Length; ++i)
-        //    {
-        //        if (_products[i] == null)
-        //            return i;
-        //    };
-
-        //    return -1;
-        //}
-
-        //private int FindFirstProduct()
-        //{
-        //    for (var i = 0; i < _products.Length; ++i)
-        //    {
-        //        if (_products[i] != null)
-        //            return i;
-        //    };
-
-        //    return -1;
-        //}
+      
 
         private void OnFileExit( object sender, EventArgs e )
         {
@@ -66,11 +46,7 @@ namespace Nile.Windows
 
         private void OnProductAdd( object sender, EventArgs e )
         {
-            ////var index = FindAvailableElement();
-            //if (index == _products.Length)
-            //{
-            //    MessageBox.Show("No more products available");
-            //}
+
 
             var child = new ProductDetailForm("Product Details");
             if (child.ShowDialog(this) != DialogResult.OK)
@@ -103,8 +79,6 @@ namespace Nile.Windows
             if (child.ShowDialog(this) != DialogResult.OK)
                 return;
 
-            //TODO:Save Product
-
             _database.Update(child.Product);
             UpdateList();
         }
@@ -122,13 +96,10 @@ namespace Nile.Windows
 
         private void DeleteProduct( Product product )
         {
-            //Confirm
-
             if (MessageBox.Show(this, $"Are you sure you want to delete '{ product.Name}'?", "Delete",
                                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
-            //TODO: Delete Product
             _database.Remove(product.Id);
             UpdateList();
         }

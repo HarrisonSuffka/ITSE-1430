@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A8BEA923-B47B-46BF-8C4F-157CA668BBD6}</ProjectGuid>
+    <ProjectGuid>{12CFBC04-EC6E-4D17-9F90-93F18D01DFDF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>MovieLib.Windows</RootNamespace>
     <AssemblyName>MovieLib.Windows</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,11 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>MovieLib.Windows.Program</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -85,6 +84,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -100,8 +100,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MovieLib.Data.Memory\MovieLib.Data.Memory.csproj">
+      <Project>{f0b4e660-d7cf-49fb-a87d-b5effb2cfa27}</Project>
+      <Name>MovieLib.Data.Memory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MovieLib\MovieLib.csproj">
-      <Project>{2c6d0418-060b-4258-848a-2932feed448d}</Project>
+      <Project>{d6b6c805-e581-4b1d-ac2c-be84554462cd}</Project>
       <Name>MovieLib</Name>
     </ProjectReference>
   </ItemGroup>

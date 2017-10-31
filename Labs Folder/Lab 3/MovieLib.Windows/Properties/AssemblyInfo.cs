@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Harrison Suffka")]
 [assembly: AssemblyProduct("Movie Library")]
-[assembly: AssemblyCopyright("Copyright ©  2017 ITSE 1430")]
+[assembly: AssemblyCopyright("Copyright ©  2017 ITSE-1430")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a8bea923-b47b-46bf-8c4f-157ca668bbd6")]
+[assembly: Guid("12cfbc04-ec6e-4d17-9f90-93f18d01dfdf")]
 
 // Version information for an assembly consists of the following four values:
 //

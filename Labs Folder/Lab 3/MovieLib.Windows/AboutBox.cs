@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* ITSE-1430
+ * Harrison Suffka
+ * Lab 3
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -7,10 +12,8 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MovieLib.Windows
-{
-    partial class AboutBox : Form
-    {
+namespace MovieLib.Windows {
+    partial class AboutBox : Form {
         public AboutBox()
         {
             InitializeComponent();

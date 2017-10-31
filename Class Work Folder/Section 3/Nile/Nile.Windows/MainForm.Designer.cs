@@ -217,7 +217,6 @@
             // _BSProducts
             // 
             this._BSProducts.AllowNew = false;
-            this._BSProducts.DataSource = typeof(Nile.Product);
             // 
             // MainForm
             // 

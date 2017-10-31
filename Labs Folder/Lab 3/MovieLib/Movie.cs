@@ -1,65 +1,66 @@
-﻿/*
+﻿/* ITSE-1430
  * Harrison Suffka
- * ITSE 1430
  * Lab 3
  */
 
- using System;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieLib
-{
-    /// <summary>Represents A Movie.</summary>
-    /// <remarks>This will represent a movie with other stuff.</remarks>
-    public class Movie
-    {
-        /// <summary>Gets or sets the name</summary>
-        /// <value> Never return null.</value>
+namespace MovieLib {
+    /// <summary>Represents a Movie</summary>
+    /// <remarks>
+    /// This will represent a Movie
+    /// </remarks>
+    public class Movie : IValidatableObject {
+
+        /// <summary>
+        /// Gets or Sets the Unique Identifier
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>Gets or Sets the Title</summary>
+        /// <value>Never returns null</value>
         public string Title
         {
-            get { return _title; }
-            set { _title = value; }
+            get { return _title ?? ""; }
+            set { _title = value?.Trim(); }
         }
 
-        /// <summary>Gets or sets the description</summary>
+        /// <summary>Gets or Sets the Description</summary>
+        /// <value>Never returns null</value>
         public string Description
         {
             get { return _description ?? ""; }
             set { _description = value?.Trim(); }
         }
 
+        /// <summary>Gets or Sets the Length</summary>
+        public int Length { get; set; }
 
-        /// <summary>Gets or sets the length</summary>
-        public decimal Length { get; set; } = 0;
-
-        /// <summary>Determines if owned</summary>
-        public bool IsOwned { get; set; }
+        /// <summary>Determines if Movie is owned</summary>
+        public bool Owned { get; set; }
 
         public override string ToString()
         {
             return Title;
         }
 
-        /// <summary> Validates the object </summary>
-        /// <returns> The error message or null </returns>
-        public virtual string Validate()
+        /// <summary>Validates the object.</summary>
+        /// <returns>The error message or null.</returns>      
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            //Name cannot be empty
             if (String.IsNullOrEmpty(Title))
-                return "Title cannot be empty.";
+                yield return new ValidationResult("Title cannot be empty.", new[] { nameof(Title) });
 
-            //Length > 0
             if (Length < 0)
-                return "Length must be >= 0 ";
-
-            return null;
+                yield return new ValidationResult("Length must be >= 0.", new[] { nameof(Length) });
         }
-
+        
         private string _title;
         private string _description;
-
     }
 }

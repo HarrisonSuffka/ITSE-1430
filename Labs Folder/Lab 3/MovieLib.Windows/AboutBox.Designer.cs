@@ -1,7 +1,5 @@
-﻿namespace MovieLib.Windows
-{
-    partial class AboutBox
-    {
+﻿namespace MovieLib.Windows {
+    partial class AboutBox {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -10,7 +8,7 @@
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        protected override void Dispose( bool disposing )
+        protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
