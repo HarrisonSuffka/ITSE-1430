@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Windows.Forms;
+using Nile.Stores;
 
 namespace Nile.Windows
 {
@@ -19,6 +20,8 @@ namespace Nile.Windows
         {
             base.OnLoad(e);
 
+            _database = new Nile.Stores.FileProductDatabase("product.csv");
+            ProductDatabaseExtension.WithSeedData(_database);
             _gridProducts.AutoGenerateColumns = false;
 
             UpdateList();
@@ -180,7 +183,7 @@ namespace Nile.Windows
             };
         }
 
-        private IProductDatabase _database = new Nile.Stores.MemoryProductDatabase();
+        private IProductDatabase _database;
         #endregion
     }
 }
