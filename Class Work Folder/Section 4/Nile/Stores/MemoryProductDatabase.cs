@@ -108,7 +108,7 @@ namespace Nile.Stores
             //{ 
             //return p;
             //}).FirstOrDefault();
-           
+
             //Lamda Short form
             //return _products.Where(p => p.Id == id).Select(p => p).FirstOrDefault();
 
