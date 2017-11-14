@@ -31,6 +31,7 @@ namespace Nile
             set => _description = value?.Trim(); 
         }
 
+        //Lamda
         public decimal CalculateProperty => 0M;
         //{
         //    get => 0M;
@@ -47,6 +48,7 @@ namespace Nile
         //    return Name;
         //}
 
+        //Lamda
         public override string ToString() => Name;
 
         /// <summary>Validates the object.</summary>
