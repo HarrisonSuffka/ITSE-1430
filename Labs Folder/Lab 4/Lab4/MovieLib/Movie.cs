@@ -39,7 +39,7 @@ namespace MovieLib
         public int Length { get; set; } = 0;
 
         /// <summary>Determines if owned.</summary>
-        public bool IsOwned { get; set; }
+        public bool isOwned { get; set; }
 
         public override string ToString() => Title;
 

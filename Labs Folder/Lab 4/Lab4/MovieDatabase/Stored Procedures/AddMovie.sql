@@ -6,7 +6,7 @@
 AS BEGIN
 	SET NOCOUNT ON;
 
-	INSERT INTO Movies (Title, Description, Length, IsOwned) VALUES (@title, @description, @length, @isOwned)
+	INSERT INTO Movies (Title, Description, Length, isOwned) VALUES (@title, @description, @length, @isOwned)
 
 	SELECT SCOPE_IDENTITY()
 END

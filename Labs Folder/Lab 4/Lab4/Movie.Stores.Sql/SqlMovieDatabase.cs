@@ -16,21 +16,23 @@ using System.Threading.Tasks;
 namespace MovieLib.Data.Sql
 {
     /// <summary>Provides an implementation of <see cref="IMovieDatabase"/> using SQL Server.</summary>
-    public class SqlMovieDatabase : MovieDatabase 
+    public class SqlMovieDatabase : MovieDatabase
     {
         #region Construction
 
-        public SqlMovieDatabase(string connectionString)
+        public SqlMovieDatabase( string connectionString )
         {
             _connectionString = connectionString;
         }
 
         private readonly string _connectionString;
-        #endregion
 
-        protected override Movie AddCore(Movie movie)
+        #endregion Construction
+
+        protected override Movie AddCore( Movie movie )
         {
             var id = 0;
+
             using (var conn = OpenDatabase())
             {
                 var cmd = new SqlCommand("AddMovie", conn) { CommandType = CommandType.StoredProcedure };
@@ -38,7 +40,7 @@ namespace MovieLib.Data.Sql
                 cmd.Parameters.Add("@title", SqlDbType.VarChar).Value = movie.Title;
                 cmd.Parameters.AddWithValue("@description", movie.Description);
                 cmd.Parameters.AddWithValue("@length", movie.Length);
-                cmd.Parameters.AddWithValue("@isOwned", movie.IsOwned);
+                cmd.Parameters.AddWithValue("@isOwned", movie.isOwned);
 
                 id = Convert.ToInt32(cmd.ExecuteScalar());
             };
@@ -49,10 +51,11 @@ namespace MovieLib.Data.Sql
         protected override IEnumerable<Movie> GetAllCore()
         {
             var movies = new List<Movie>();
+
             using (var conn = OpenDatabase())
             {
                 var cmd = new SqlCommand("GetAllMovies", conn) { CommandType = CommandType.StoredProcedure };
-                
+
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -60,9 +63,9 @@ namespace MovieLib.Data.Sql
                         var movie = new Movie() {
                             Id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
                             Title = reader.GetFieldValue<string>(1),
-                            IsOwned = reader.GetBoolean(4),
+                            isOwned = reader.GetBoolean(4),
                             Description = reader.GetString(2),
-                            Length = reader.GetInt32(3),             
+                            Length = reader.GetInt32(3),
                         };
                         movies.Add(movie);
                     };
@@ -72,7 +75,7 @@ namespace MovieLib.Data.Sql
             };
         }
 
-        protected override Movie GetCore(int id)
+        protected override Movie GetCore( int id )
         {
             using (var conn = OpenDatabase())
             {
@@ -98,7 +101,7 @@ namespace MovieLib.Data.Sql
                             Title = row.Field<string>("Title"),
                             Description = row.Field<string>("Description"),
                             Length = row.Field<int>("length"),
-                            IsOwned = row.Field<bool>("isowned")
+                            isOwned = row.Field<bool>("isOwned")
                         };
                     };
                 };
@@ -107,7 +110,7 @@ namespace MovieLib.Data.Sql
             return null;
         }
 
-        protected override void RemoveCore(int id)
+        protected override void RemoveCore( int id )
         {
             using (var conn = OpenDatabase())
             {
@@ -125,7 +128,7 @@ namespace MovieLib.Data.Sql
             };
         }
 
-        protected override Movie UpdateCore(Movie existing, Movie movie)
+        protected override Movie UpdateCore( Movie existing, Movie movie )
         {
             using (var conn = OpenDatabase())
             {
@@ -135,7 +138,7 @@ namespace MovieLib.Data.Sql
                 cmd.Parameters.AddWithValue("@title", movie.Title);
                 cmd.Parameters.AddWithValue("@description", movie.Description);
                 cmd.Parameters.AddWithValue("@length", movie.Length);
-                cmd.Parameters.AddWithValue("@isOwned", movie.IsOwned);
+                cmd.Parameters.AddWithValue("@isOwned", movie.isOwned);
 
                 cmd.ExecuteNonQuery();
             };

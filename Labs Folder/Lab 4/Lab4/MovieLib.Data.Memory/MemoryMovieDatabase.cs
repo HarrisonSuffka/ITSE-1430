@@ -14,12 +14,12 @@ using MovieLib;
 namespace MovieLib.Stores
 {
     /// <summary>Base class for movie database.</summary>
-    public class MemoryMovieDatabase : MovieDatabase 
+    public class MemoryMovieDatabase : MovieDatabase
     {
         /// <summary>Adds a movie.</summary>
         /// <param name="movie">The movie to add.</param>
         /// <returns>The added movie.</returns>
-        protected override Movie AddCore(Movie movie)
+        protected override Movie AddCore( Movie movie )
         {
             var newMovie = CopyMovie(movie);
             _movies.Add(newMovie);
@@ -34,7 +34,7 @@ namespace MovieLib.Stores
 
         /// <summary>Get a specific movie.</summary>
         /// <returns>The movie, if it exists.</returns>
-        protected override Movie GetCore(int id)
+        protected override Movie GetCore( int id )
         {
             var movie = FindMovie(id);
 
@@ -51,9 +51,10 @@ namespace MovieLib.Stores
 
         /// <summary>Removes the movie.</summary>
         /// <param name="movie">The movie to remove.</param>
-        protected override void RemoveCore(int id)
+        protected override void RemoveCore( int id )
         {
             var movie = FindMovie(id);
+
             if (movie != null)
                 _movies.Remove(movie);
         }
@@ -61,7 +62,7 @@ namespace MovieLib.Stores
         /// <summary>Updates a movie.</summary>
         /// <param name="movie">The movie to update.</param>
         /// <returns>The updated movie.</returns>
-        protected override Movie UpdateCore(Movie existing, Movie movie)
+        protected override Movie UpdateCore( Movie existing, Movie movie )
         {
             //Find and remove existing movie
             existing = FindMovie(movie.Id);
@@ -75,7 +76,7 @@ namespace MovieLib.Stores
         }
 
         //Copies one movie to another
-        private Movie CopyMovie(Movie movie)
+        private Movie CopyMovie( Movie movie )
         {
             if (movie == null)
                 return null;
@@ -85,13 +86,13 @@ namespace MovieLib.Stores
             newMovie.Title = movie.Title;
             newMovie.Description = movie.Description;
             newMovie.Length = movie.Length;
-            newMovie.IsOwned = movie.IsOwned;
+            newMovie.isOwned = movie.isOwned;
 
             return newMovie;
         }
 
         //Find a movie by ID
-        private Movie FindMovie(int id)
+        private Movie FindMovie( int id )
         {
             foreach (var movie in _movies)
             {

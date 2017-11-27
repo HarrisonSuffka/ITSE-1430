@@ -15,7 +15,7 @@ DECLARE @count INT
 SELECT @count = COUNT(*) FROM Movies
 IF (@count = 0)
 BEGIN
-	INSERT INTO Movies (Title, Description, Length, IsOwned) VALUES
+	INSERT INTO Movies (Title, Description, Length, isOwned) VALUES
 		('Star Wars', 'Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee, and two droids to save the galaxy from...', 121, 1),
 		('Star Trek: The Motion Picture', 'When an alien spacecraft of enormous power is spotted approaching Earth, Admiral Kirk resumes command of the Starship Enterprise...', 132, 0),
 		('Cars', 'A hot-shot race-car named Lightning McQueen gets waylaid in Radiator Springs, where he finds the true meaning of friendship and family.', 117, 1),

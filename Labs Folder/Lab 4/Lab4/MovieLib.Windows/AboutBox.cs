@@ -13,8 +13,10 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MovieLib.Windows {
-    partial class AboutBox : Form {
+namespace MovieLib.Windows
+{
+    partial class AboutBox : Form
+    {
         public AboutBox()
         {
             InitializeComponent();

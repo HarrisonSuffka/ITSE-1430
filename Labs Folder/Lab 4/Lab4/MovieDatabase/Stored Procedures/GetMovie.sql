@@ -3,7 +3,7 @@
 AS BEGIN
 	SET NOCOUNT ON;
 
-	SELECT Id, Title, Description, Length, IsOwned
+	SELECT Id, Title, Description, Length, isOwned
 	FROM Movies
 	WHERE Id = @id
 END

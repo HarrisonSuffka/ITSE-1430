@@ -18,6 +18,6 @@ AS BEGIN
 		Title = @title, 
 		Description = @description, 
 		Length = @length, 
-		IsOwned = @isOwned
+		isOwned = @isOwned
 	WHERE Id = @id
 END

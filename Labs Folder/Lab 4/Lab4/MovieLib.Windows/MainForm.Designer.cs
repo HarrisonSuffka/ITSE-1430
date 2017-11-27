@@ -44,7 +44,7 @@
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Length = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsOwned = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.isOwned = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this._bsMovies = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._errorsMain)).BeginInit();
@@ -149,7 +149,7 @@
             this.Title,
             this.Description,
             this.Length,
-            this.IsOwned,
+            this.isOwned,
             this.Id});
             this._gridMovies.DataSource = this._bsMovies;
             this._gridMovies.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -199,14 +199,14 @@
             this.Length.Name = "Length";
             this.Length.ReadOnly = true;
             // 
-            // IsOwned
+            // isOwned
             // 
-            this.IsOwned.DataPropertyName = "IsOwned";
-            this.IsOwned.HeaderText = "Is Owned?";
-            this.IsOwned.MinimumWidth = 50;
-            this.IsOwned.Name = "IsOwned";
-            this.IsOwned.ReadOnly = true;
-            this.IsOwned.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.isOwned.DataPropertyName = "isOwned";
+            this.isOwned.HeaderText = "Is Owned?";
+            this.isOwned.MinimumWidth = 50;
+            this.isOwned.Name = "isOwned";
+            this.isOwned.ReadOnly = true;
+            this.isOwned.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // _bsMovies
             // 
@@ -252,7 +252,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Length;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn IsOwned;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isOwned;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
     }
 }

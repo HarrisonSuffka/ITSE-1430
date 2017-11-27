@@ -33,11 +33,11 @@ namespace MovieLib
         /// <param name="source">The data to seed.</param>
         public static void WithSeedData(this IMovieDatabase source)
         {
-            source.Add(new Movie() { Title = "Blade", Description = "A half-vampire, half-mortal man becomes a protector of the mortal race, while slaying evil vampires.", Length = 120, IsOwned = true });
-            source.Add(new Movie() { Title = "Blade II", Description = "Blade forms an uneasy alliance with the vampire council in order to combat the Reapers, who are feeding on vampires.", Length = 125, IsOwned = true });
-            source.Add(new Movie() { Title = "Blade: Trinity", Description = "Blade, now a wanted man by the FBI, must join forces with the Nightstalkers to face his most challenging enemy yet: Dracula.", Length = 113, IsOwned = true });
-            source.Add(new Movie() { Title = "Silicon Valley", Description = "Follows the struggle of Richard Hendricks, a silicon valley engineer trying to build his own company called Pied Piper.", Length = 1350, IsOwned = true });
-            source.Add(new Movie() { Title = "Mr. Robot", Description = "Follows Elliot, a young programmer working as a cyber-security engineer by day, and a vigilante hacker by night.", Length = 1140, IsOwned = true });
+            source.Add(new Movie() { Title = "Blade", Description = "A half-vampire, half-mortal man becomes a protector of the mortal race, while slaying evil vampires.", Length = 120, isOwned = true });
+            source.Add(new Movie() { Title = "Blade II", Description = "Blade forms an uneasy alliance with the vampire council in order to combat the Reapers, who are feeding on vampires.", Length = 125, isOwned = true });
+            source.Add(new Movie() { Title = "Blade: Trinity", Description = "Blade, now a wanted man by the FBI, must join forces with the Nightstalkers to face his most challenging enemy yet: Dracula.", Length = 113, isOwned = true });
+            source.Add(new Movie() { Title = "Silicon Valley", Description = "Follows the struggle of Richard Hendricks, a silicon valley engineer trying to build his own company called Pied Piper.", Length = 1350, isOwned = true });
+            source.Add(new Movie() { Title = "Mr. Robot", Description = "Follows Elliot, a young programmer working as a cyber-security engineer by day, and a vigilante hacker by night.", Length = 1140, isOwned = true });
         }
     }
 }
