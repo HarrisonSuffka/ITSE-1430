@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Nile.Stores.SQL")]
+[assembly: AssemblyTitle("Nile.Stores.Sql")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Nile.Stores.SQL")]
+[assembly: AssemblyProduct("Nile.Stores.Sql")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1e15410a-069a-4bb0-8d51-cd6e4ae93462")]
+[assembly: Guid("101927c1-433a-4dca-8e60-b679ec824fc7")]
 
 // Version information for an assembly consists of the following four values:
 //
