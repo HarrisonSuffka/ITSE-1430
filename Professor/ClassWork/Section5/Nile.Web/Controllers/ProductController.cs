@@ -9,13 +9,18 @@ namespace Nile.Web.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Product
-        public ActionResult Index()
+        public ProductController (IProductDatabase database)
         {
-            var model = new List<ProductViewModel>() {
-                new ProductViewModel() { Id = 1, Name = "Product A", Price = 123 }
-            };
-            return View(model);
+            _database = database;
         }
+
+        // GET: Product
+        public ActionResult List()
+        {
+            var products = _database.GetAll();
+            return View(products.ToModel());
+        }
+
+        private readonly IProductDatabase _database;
     }
 }

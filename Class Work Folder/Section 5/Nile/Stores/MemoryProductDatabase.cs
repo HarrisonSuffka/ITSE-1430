@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Nile.Stores
-{ 
+{
     /// <summary>Provides an implementation of <see cref="IProductDatabase"/> using a memory collection.</summary>
     public class MemoryProductDatabase : ProductDatabase
     {        
@@ -43,12 +43,11 @@ namespace Nile.Stores
         /// <returns>The products.</returns>
         protected override IEnumerable<Product> GetAllCore ()
         {
-            //LINQ
             return from item in _products
-            select CopyProduct(item);
-
-           //foreach (var product in _products)
-           //    yield return CopyProduct(product);            
+                   select CopyProduct(item);
+            
+            //foreach (var product in _products)
+               // yield return CopyProduct(product);            
         }
 
         /// <summary>Removes the product.</summary>
@@ -75,19 +74,20 @@ namespace Nile.Stores
 
             return CopyProduct(newProduct);
         }
-        
+
         //Copies one product to another
-        private Product CopyProduct ( Product product )
+        private Product CopyProduct( Product product )
         {
             if (product == null)
                 return null;
 
-            var newProduct = new Product();
-            newProduct.Id = product.Id;
-            newProduct.Name = product.Name;
-            newProduct.Description = product.Description;
-            newProduct.Price = product.Price;
-            newProduct.IsDiscontinued = product.IsDiscontinued;
+            var newProduct = new Product() {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                Price = product.Price,
+                IsDiscontinued = product.IsDiscontinued
+            };
 
             return newProduct;
         }
@@ -100,19 +100,11 @@ namespace Nile.Stores
                     where product.Id == id
                     select product).FirstOrDefault();
 
-            ////Lamda Long Form
-            //return _products.Where( p => 
-            //{
-            //    return p.Id == id;
-            //} ).Select((p => 
-            //{ 
-            //return p;
-            //}).FirstOrDefault();
-
-            //Lamda Short form
-            //return _products.Where(p => p.Id == id).Select(p => p).FirstOrDefault();
-
-
+            //Extension method approach
+            //return _products.Where( p => p.Id == id )
+            //                .Select( p => p )
+            //                .FirstOrDefault();
+            
             //foreach (var product in _products)
             //{
             //    if (product.Id == id)
@@ -120,11 +112,7 @@ namespace Nile.Stores
             //};
 
             //return null;
-        }
-        private bool IsID (Product product, int id)
-        {
-            return product.Id == id;
-        }
+        }        
 
         private List<Product> _products = new List<Product>();
         private int _nextId = 1;

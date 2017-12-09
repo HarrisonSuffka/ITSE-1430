@@ -16,5 +16,6 @@ namespace Nile.Web.Models
         public decimal Price { get; set; }
 
         public bool IsDiscontinued { get; set; }
+
     }
 }
