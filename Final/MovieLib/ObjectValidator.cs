@@ -17,10 +17,7 @@ namespace MovieLib
     {
         /// <summary>Validates an object.</summary>
         /// <param name="value">The value to validate.</param>
-        public static void ValidateObject ( IValidatableObject value )
-        {
-            Validator.ValidateObject(value, new ValidationContext(value), true);
-        }
+        public static void ValidateObject( IValidatableObject value ) => Validator.ValidateObject(value, new ValidationContext(value), true);
 
         /// <summary>Validates an object and returns the results.</summary>
         /// <param name="value">The value.</param>

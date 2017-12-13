@@ -25,39 +25,31 @@ namespace MovieLib.Web.Models
         /// <summary>Converts a <see cref="Movie"/> to a view model.</summary>
         /// <param name="source">The source.</param>
         /// <returns>The view model.</returns>
-        public static MovieViewModel ToViewModel ( this Movie source )
+        public static MovieViewModel ToViewModel( this Movie source ) => new MovieViewModel() 
         {
-            return new MovieViewModel()
-            {
-                Id = source.Id,
-                Title = source.Title,
-                //Harrison Suffka
-                //CR1 - (Bug) Movie rating is not being persisted
-                Rating = source.Rating,
-                Description = source.Description,
-                Length = source.Length,
-                IsOwned = source.IsOwned,
-                ReleaseYear = source.ReleaseYear
-            };
-        }
+            Id = source.Id,
+            Title = source.Title,
+            //CR Harrison S - (Bug) Movie rating is not being persisted
+            Rating = source.Rating,
+            Description = source.Description,
+            Length = source.Length,
+            IsOwned = source.IsOwned,
+            ReleaseYear = source.ReleaseYear
+        };
 
         /// <summary>Converts a view model to a <see cref="Movie"/>.</summary>
         /// <param name="source">The source.</param>
         /// <returns>The movie.</returns>
-        public static Movie ToMovie ( this MovieViewModel source )
+        public static Movie ToMovie( this MovieViewModel source ) => new Movie() 
         {
-            return new Movie()
-            {
-                Id = source.Id,
-                Title = source.Title,
-                //Harrison Suffka
-                //CR1 - (Bug) Movie rating is not being persisted
-                Rating = source.Rating,
-                Description = source.Description,
-                Length = source.Length,
-                IsOwned = source.IsOwned,
-                ReleaseYear = source.ReleaseYear
-            };
-        }
+            Id = source.Id,
+            Title = source.Title,
+            //CR Harrison S - (Bug) Movie rating is not being persisted
+            Rating = source.Rating,
+            Description = source.Description,
+            Length = source.Length,
+            IsOwned = source.IsOwned,
+            ReleaseYear = source.ReleaseYear
+        };
     }
 }

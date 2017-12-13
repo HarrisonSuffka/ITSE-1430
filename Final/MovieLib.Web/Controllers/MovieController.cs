@@ -28,10 +28,7 @@ namespace MovieLib.Web.Controllers
         }
         #endregion
 
-        public ActionResult Add ()
-        {
-            return View(new MovieViewModel());
-        }
+        public ActionResult Add() => View(new MovieViewModel());
 
         [HttpPost]
         public ActionResult Add ( MovieViewModel model )
@@ -99,9 +96,7 @@ namespace MovieLib.Web.Controllers
 
         public ActionResult List()
         {
-            var movies = from m in _database.GetAll()
-                         //Harrison Suffka
-                         //CR5 – (Feature) Movies should be sorted when displayed
+            var movies = from m in _database.GetAll()  //CR Harrison S – (Feature) Movies should be sorted when displayed
                          orderby m.Title
                          select m;
             
