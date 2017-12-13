@@ -1,5 +1,7 @@
 ﻿/*
- * ITSE1439
+ * ITSE 1430
+ * Harrison Suffka
+ * 12/13/17
  */
 using System;
 using System.Collections.Generic;
@@ -27,7 +29,7 @@ namespace MovieLib.Data.Sql
         /// <summary>Adds a movie.</summary>
         /// <param name="movie">The movie to add.</param>
         /// <returns>The added movie.</returns>
-        protected override Movie AddCore ( Movie movie ) // TODO: 02 - protected Movie AddCore ( Movie movie ) {} should be protected override Movie AddCore ( Movie movie ) {}
+        protected override Movie AddCore ( Movie movie ) // //CR Harrison S - protected Movie AddCore ( Movie movie ) {} should be protected override Movie AddCore ( Movie movie ) {}
         {
             using (var conn = new SqlConnection(_connectionString))
             {
@@ -82,6 +84,7 @@ namespace MovieLib.Data.Sql
                 var cmd = conn.CreateStoredProcedureCommand("GetAllMovies");
 
                 conn.Open();
+
                 return cmd.ExecuteReaderWithResults(ReadMovie);
             };
         }
@@ -89,7 +92,7 @@ namespace MovieLib.Data.Sql
         /// <summary>Removes a movie.</summary>
         /// <param name="id">The ID of the movie.</param>
         protected override void RemoveCore ( int id )
-        {
+        {  ////CR Harrison - Recreate Database, the fields are different on this implementation vs the other movieDataBase
             using (var conn = new SqlConnection(_connectionString))
             {
                 var cmd = conn.CreateStoredProcedureCommand("RemoveMovie");
@@ -125,18 +128,15 @@ namespace MovieLib.Data.Sql
 
         #region Private Members
 
-        private Movie ReadMovie ( DbDataReader reader )
-        {   // TODO: 03 - Recreate Database, the fields are different on this implementation vs the other movieDataBase
-            return new Movie() {
-                Id = reader.GetInt32(0),
-                Title = reader.GetString(1),
-                Description = reader.GetString(2),
-                Length = reader.GetInt32(3),
-                IsOwned = reader.GetBoolean(4),
-                Rating = (Rating)reader.GetInt32(5),
-                ReleaseYear = (int)reader.GetInt16(6)
-            };
-        }
+        private Movie ReadMovie( DbDataReader reader ) => new Movie() {
+            Id = reader.GetInt32(0),
+            Title = reader.GetString(1),
+            Description = reader.GetString(2),
+            Length = reader.GetInt32(3),
+            IsOwned = reader.GetBoolean(4),
+            Rating = (Rating)reader.GetInt32(5),
+            ReleaseYear = (int)reader.GetInt16(6)
+        };
 
         private readonly string _connectionString;
         #endregion

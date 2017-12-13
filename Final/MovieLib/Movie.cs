@@ -1,6 +1,7 @@
 ﻿/*
  * ITSE 1430
- * Sample implementation
+ * Harrison Suffka
+ * 12/13/17
  */
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,8 @@ namespace MovieLib
         /// <summary>Gets or sets the description.</summary>
         public string Description
         {
-            get { return _description ?? ""; }
-            set { _description = value?.Trim(); } //TODO: 08 - Before: set { _description = value; } After: set { _description = value?.Trim(); }
+            get => _description ?? "";
+            set => _description = value;
         }
 
         /// <summary>Determines if the movie is owned or not.</summary>
@@ -29,14 +30,14 @@ namespace MovieLib
 
         /// <summary>Gets or sets the movie rating.</summary>
         public Rating Rating { get; set; }
-        
+
         public int ReleaseYear { get; set; }
 
         /// <summary>Gets or sets the title.</summary>
         public string Title
         {
-            get { return _title ?? ""; }
-            set { _title = value?.Trim(); } //TODO: 07 - Before: set { _title = value; } After: set { _title = value?.Trim(); }
+            get => _title ?? "";
+            set => _title = value;
         }
 
         /// <summary>Validates the object.</summary>

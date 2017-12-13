@@ -1,6 +1,7 @@
 ﻿/*
  * ITSE 1430
- * Sample implementation
+ * Harrison Suffka
+ * 12/13/17
  */
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,7 @@ namespace MovieLib.Web.Controllers
         }
 
         public ActionResult Delete ( int id )
-        {// TODO: 05 - Redo the view for Delete to add additional fields
+        {
             var movie = _database.Get(id);
             if (movie == null)
                 return HttpNotFound();
@@ -63,18 +64,9 @@ namespace MovieLib.Web.Controllers
         [HttpPost]
         public ActionResult Delete ( MovieViewModel model )
         {
-            
-            // TODO: 04 - Add Try Catch to delete
-            try
-            {
-                _database.Remove(model.Id);
-                return RedirectToAction("List");
-            } catch (Exception e)
-            {
-                ModelState.AddModelError("", e.Message);
-            };
+            _database.Remove(model.Id);
 
-            return View(model);
+            return RedirectToAction("List");
         }
 
         public ActionResult Edit ( int id )
@@ -108,8 +100,11 @@ namespace MovieLib.Web.Controllers
         public ActionResult List()
         {
             var movies = from m in _database.GetAll()
+                         //Harrison Suffka
+                         //CR5 – (Feature) Movies should be sorted when displayed
+                         orderby m.Title
                          select m;
-
+            
             return View(movies.ToViewModel());
         }
 

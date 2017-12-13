@@ -1,5 +1,7 @@
 ﻿/*
  * ITSE 1430
+ * Harrison Suffka
+ * 12/13/17
  */
 using System;
 using System.Collections.Generic;
@@ -46,10 +48,7 @@ namespace MovieLib.Data
 
         /// <summary>Gets all the movies.</summary>
         /// <returns>The list of movies.</returns>
-        public IEnumerable<Movie> GetAll () //TODO: 01 - Getall should be GetAll
-        {
-            return GetAllCore();
-        }
+        public IEnumerable<Movie> GetAll() => GetAllCore(); //CR Harrison - Getall should be GetAll
 
         /// <summary>Removes a movie.</summary>
         /// <param name="id">The ID of the movie.</param>
@@ -64,7 +63,8 @@ namespace MovieLib.Data
                 throw new ArgumentOutOfRangeException(nameof(id), "ID must be > 0.");
 
             var existing = GetCore(id);
-            if (existing == null) // TODO: 06 - Wrong, was: if (existing != null) should be: if (existing == null)
+            //CR Harrison - (Bug) Removing a movie fails
+            if (existing == null)
                 return false;
 
             RemoveCore(id);

@@ -1,6 +1,7 @@
 ﻿/*
  * ITSE 1430
- * Sample implementation
+ * Harrison Suffka
+ * 12/13/17
  */
 using System;
 using System.Collections.Generic;
@@ -30,11 +31,12 @@ namespace MovieLib.Web.Models
             {
                 Id = source.Id,
                 Title = source.Title,
-
+                //Harrison Suffka
+                //CR1 - (Bug) Movie rating is not being persisted
+                Rating = source.Rating,
                 Description = source.Description,
                 Length = source.Length,
                 IsOwned = source.IsOwned,
-                Rating = source.Rating, //TODO: 09 - Missing: Rating = source.Rating,
                 ReleaseYear = source.ReleaseYear
             };
         }
@@ -48,11 +50,12 @@ namespace MovieLib.Web.Models
             {
                 Id = source.Id,
                 Title = source.Title,
-
+                //Harrison Suffka
+                //CR1 - (Bug) Movie rating is not being persisted
+                Rating = source.Rating,
                 Description = source.Description,
                 Length = source.Length,
                 IsOwned = source.IsOwned,
-                Rating = source.Rating, //TODO: 10 - Missing: Rating = source.Rating,
                 ReleaseYear = source.ReleaseYear
             };
         }

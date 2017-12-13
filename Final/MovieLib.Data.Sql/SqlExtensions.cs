@@ -1,5 +1,7 @@
 ﻿/*
- * ITSE1430
+ * ITSE 1430
+ * Harrison Suffka
+ * 12/13/17
  */
 using System;
 using System.Collections.Generic;
