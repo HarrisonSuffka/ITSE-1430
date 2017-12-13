@@ -15,8 +15,7 @@ namespace MovieLib.Web.Models
     {
         public int Id { get; set; }
 
-        //Harrison Suffka
-        //CR4 – (Feature) Require the movie name to be between 2 and 100 characters
+        //CR Harrison S – (Feature) Require the movie name to be between 2 and 100 characters
         [Required(AllowEmptyStrings = false)]
         [MinLength(2, ErrorMessage ="Movie Title must be at least 2 characters in length.")]
         [MaxLength(100, ErrorMessage ="Movie Title cannot be more than 100 characters in length.")]
@@ -32,8 +31,7 @@ namespace MovieLib.Web.Models
 
         public Rating Rating { get; set; }
 
-        //Harrison Suffka
-        //CR2 - (Bug) Release year is not being properly limited to the given years
+        //CR Harrison S - (Bug) Release year is not being properly limited to the given years
         [Range(1900, 2100)]
         [Display(Name = "Release Year")]
         public int ReleaseYear { get; set; }
